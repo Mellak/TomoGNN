@@ -1,4 +1,4 @@
-# TomoGNN: Graph Neural Network for PET Image Reconstruction
+# -TomoGNN- Linking the Dots: Pixel-Detectors Associations for Improved PET Direct Image Reconstruction.
 
 ## Overview
 
