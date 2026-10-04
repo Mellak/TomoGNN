@@ -14,12 +14,6 @@ from torchvision import datasets
 import astra
 
 
-dir_images = '/home/youness/data/Data/selected_data/Images_Png/'
-tdir_images= '/home/youness/data/Data/selected_data/Images_Png_Test/'
-
-dir_images = '/home/youness/data/Data/selected_data/Brain_PET_Png/'
-tdir_images= '/home/youness/data/Data/selected_data/Brain_PET_Png_Test/'
-
 def create_sinogram(image):
     angle_theta = np.linspace(0., 180., max(image.shape), endpoint=False)
     sinogram = radon(image, theta=angle_theta, circle=True, preserve_range=True) #, preserve_range=True
@@ -323,7 +317,12 @@ class AstraSinogramImageDataset_w_DeadRegion(Dataset):
 
 
 if __name__ == '__main__':
-    dataset_root = "/home/youness/data/Perso_Learning/guide_for_3-d_-image_-reconstruction_with_-ct_-pet-master/mnist_data/"
+    # Visual sanity check: show noisy sinograms (with dead regions) next to their source images.
+    import argparse
+    parser = argparse.ArgumentParser(description='Show sample sinogram/image pairs from a folder of PNG images.')
+    parser.add_argument('--image-dir', required=True, help='folder of grayscale PNG images')
+    args = parser.parse_args()
+    dir_images = tdir_images = args.image_dir
 
     img_size = 128
     num_pixels = 128
@@ -333,19 +332,14 @@ if __name__ == '__main__':
     vol_geom  = astra.create_vol_geom(img_size, img_size)
     proj_geom = astra.create_proj_geom('parallel', detector_size, num_detectors, np.linspace(0,np.pi,num_angles,False))
     proj_id   = astra.create_projector('strip', proj_geom, vol_geom)
-    
+
 
     RecoDataset = AstraSinogramImageDataset_w_DeadRegion(dir_images, tdir_images, mode='train', vol_geom=vol_geom, proj_geom=proj_geom, proj_id=proj_id)
     show_dataloader = DataLoader(RecoDataset, batch_size=4, shuffle=False)
-    
-    
-
-   
-
 
     for sinograms, images, DR_sino in show_dataloader:
         # 'sinograms' contains the sinogram data (batch)
-        # 'images' contains the corresponding MNIST images (batch)
+        # 'images' contains the corresponding images (batch)
         # plot 4 examples from the batch:
         for i in range(4):
             plt.subplot(2, 4, i+1)
@@ -353,6 +347,4 @@ if __name__ == '__main__':
             plt.subplot(2, 4, i+5)
             plt.imshow(images[i,0], cmap='gray')
 
-            
         plt.show()
-   
