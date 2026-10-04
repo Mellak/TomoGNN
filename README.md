@@ -2,7 +2,7 @@
 
 # TomoGNN — Linking the Dots: Pixel-Detectors Associations for Improved PET Direct Image Reconstruction
 
-Code for an unpublished manuscript that has been **withdrawn**. The repository is kept for reference only: no issues or pull requests will be handled, and nothing here should be read as a validated result. Please read the retrospective below before using or citing anything.
+Code by [Youness Mellak](https://orcid.org/0009-0000-3772-8300) for an unpublished manuscript that has been **withdrawn**. The repository is kept for reference only: no issues or pull requests will be handled, and nothing here should be read as a validated result. Please read the retrospective below before using or citing anything.
 
 ![TomoGNN architecture](figures/architecture.png)
 
@@ -97,3 +97,9 @@ python scripts/train.py --train-dir path/to/train_pngs --test-dir path/to/test_p
 ## Data and licence
 
 The code is released under the [MIT License](LICENSE). The sample images in `Images/` appear to derive from third-party data sets (the folder is named `BrainWeb`) that are not covered by this licence; their provenance and terms are not documented here, so check the original sources before reuse.
+
+## Author and citation
+
+Youness Mellak — ORCID [0009-0000-3772-8300](https://orcid.org/0009-0000-3772-8300).
+
+There is no published paper to cite. If you need to refer to the code itself, use [`CITATION.cff`](CITATION.cff) (GitHub's "Cite this repository" button) and mention that the associated manuscript was withdrawn.
