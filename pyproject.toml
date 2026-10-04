@@ -9,9 +9,14 @@ description = "Archived research code: graph-based direct PET reconstruction (wi
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [{ name = "Youness Mellak" }]
+
 requires-python = ">=3.8"
 # Dependencies are listed in requirements.txt (PyTorch and ASTRA need manual install choices).
 dependencies = []
 
 [tool.setuptools]
 packages = ["tomognn"]
+
+[project.urls]
+Repository = "https://github.com/Mellak/TomoGNN"
+ORCID = "https://orcid.org/0009-0000-3772-8300"

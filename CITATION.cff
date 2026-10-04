@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Archived research code; the associated manuscript was withdrawn and is not published. If you refer to this code, cite the repository only."
+title: "TomoGNN: Linking the Dots: Pixel-Detectors Associations for Improved PET Direct Image Reconstruction (archived research code)"
+type: software
+authors:
+  - family-names: Mellak
+    given-names: Youness
+    orcid: "https://orcid.org/0009-0000-3772-8300"
+repository-code: "https://github.com/Mellak/TomoGNN"
+license: MIT
+date-released: "2024-03-11"
