@@ -1,28 +1,8 @@
-from typing import Any
-import numpy as np
-import matplotlib.pyplot as plt
-from skimage.transform import radon, rescale, resize, iradon
-from torch import Tensor
-from torch.utils.data import Dataset
-from torchvision import datasets
-from torchvision.transforms import ToTensor
-import matplotlib.pyplot as plt
+"""TomoGNN model definition: sinogram CNN -> single GCN layer -> image CNN, plus the GDL loss."""
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from torch_geometric.nn import MessagePassing
-from torch_geometric.utils import from_scipy_sparse_matrix, to_scipy_sparse_matrix
-import scipy.sparse as sp
-from torch.utils.data import Dataset, DataLoader
-import yaml
-from tqdm import tqdm  # Import tqdm
-import astra
-import cv2
-import os
-from AstraSinogramDataLoader import *
-import math
 from torch_geometric.nn.conv import GCNConv
-
 
 
 def build_nodes_features(sinogram=None, image=None, flow='source_to_target', num_pixels=128, num_detectors=128, num_angles=128):

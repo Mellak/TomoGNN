@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tomognn"
+version = "0.1.0"
+description = "Archived research code: graph-based direct PET reconstruction (withdrawn manuscript)"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Youness Mellak" }]
+requires-python = ">=3.8"
+# Dependencies are listed in requirements.txt (PyTorch and ASTRA need manual install choices).
+dependencies = []
+
+[tool.setuptools]
+packages = ["tomognn"]

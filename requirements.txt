@@ -1,0 +1,32 @@
+# Runtime dependencies for TomoGNN (archived research code).
+# The original code was run with Python 3.8; it was re-checked for import/compile on Python 3.11
+# with current releases of the packages below. Versions are deliberately not pinned.
+#
+# Install order matters for two packages:
+#   1. PyTorch  - pick the build matching your CUDA version: https://pytorch.org/get-started/locally/
+#   2. ASTRA    - see the note below
+numpy
+scipy
+scikit-image
+opencv-python
+matplotlib
+tqdm
+pyyaml          # imported by the original modules, not actually used
+torch
+torchvision
+torch_geometric
+
+# --- ASTRA Toolbox -------------------------------------------------------------------------
+# The code needs the `astra` Python module (parallel-beam 'strip' projector + system matrix).
+#   * Recommended (what the project was developed with): conda
+#         conda install -c astra-toolbox -c nvidia astra-toolbox
+#   * pip wheels also exist for recent versions:
+#         pip install astra-toolbox
+#   * CPU-only machines work for everything in scripts/ (system matrix, sinogram simulation).
+#     Only tomognn.utils.Rec_FBP uses the CUDA algorithm 'FBP_CUDA' and needs a CUDA-enabled build
+#     of ASTRA and a GPU.
+# Docs: https://astra-toolbox.com/docs/install.html
+astra-toolbox
+
+# Optional, only for notebooks/TomoGNN_inference.ipynb
+# jupyterlab
